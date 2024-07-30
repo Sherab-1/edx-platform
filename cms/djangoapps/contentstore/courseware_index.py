@@ -606,11 +606,19 @@ class CourseAboutSearchIndexer(CoursewareSearchIndexer):
             return
 
         course_id = str(course.id)
+        # Added by Developer
+        from openedx.core.djangoapps.content.course_overviews.models import CourseOverview
+        overview = CourseOverview.objects.get(id=course.id)
+        partner_logo_url = ""
+        if overview.enhancedcourse.partner:
+            partner_logo_url = overview.enhancedcourse.partner.logo.url
+
         course_info = {
             'id': course_id,
             'course': course_id,
             'content': {},
             'image_url': course_image_url(course),
+            'partner_logo_url': partner_logo_url,
         }
 
         # load data for all of the 'about' blocks for this course into a dictionary

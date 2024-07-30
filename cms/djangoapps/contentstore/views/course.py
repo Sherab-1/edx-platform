@@ -738,6 +738,15 @@ def course_index(request, course_key):
         advanced_dict = CourseMetadata.fetch(course_block)
         proctoring_errors = CourseMetadata.validate_proctoring_settings(course_block, advanced_dict, request.user)
 
+        # Added by Developer
+        overview = CourseOverview.objects.get(id=course_key)
+        partner = overview.enhancedcourse.partner
+        if partner:
+            if partner.activate_school_admin and hasattr(request.user, 'extended_profile'):
+                user_partner = request.user.extended_profile.partner
+                if partner.id != user_partner.id:
+                    return render_to_response('unauthorized.html', {'partner': partner})
+
         return render_to_response('course_outline.html', {
             'language_code': request.LANGUAGE_CODE,
             'context_course': course_block,
@@ -1247,7 +1256,14 @@ def settings_handler(request, course_key_string):  # lint-amnesty, pylint: disab
                             'show_min_grade_warning': show_min_grade_warning,
                         }
                     )
-
+            # Added by Developer
+            overview = CourseOverview.objects.get(id=course_key)
+            partner = overview.enhancedcourse.partner
+            if partner:
+                if partner.activate_school_admin and hasattr(request.user, 'extended_profile'):
+                    user_partner = request.user.extended_profile.partner
+                    if partner.id != user_partner.id:
+                        return render_to_response('unauthorized.html', {'partner': partner})
             return render_to_response('settings.html', settings_context)
         elif 'application/json' in request.META.get('HTTP_ACCEPT', ''):  # pylint: disable=too-many-nested-blocks
             if request.method == 'GET':
