@@ -742,10 +742,15 @@ def course_index(request, course_key):
         overview = CourseOverview.objects.get(id=course_key)
         partner = overview.enhancedcourse.partner
         if partner:
-            if partner.activate_school_admin and hasattr(request.user, 'extended_profile'):
-                user_partner = request.user.extended_profile.partner
-                if partner.id != user_partner.id:
+            if partner.activate_school_admin:
+                if not hasattr(request.user, 'extended_profile'):
                     return render_to_response('unauthorized.html', {'partner': partner})
+                else:
+                    user_partner = request.user.extended_profile.partner
+                    if not user_partner:
+                        return render_to_response('unauthorized.html', {'partner': partner})
+                    elif partner.id != user_partner.id:
+                        return render_to_response('unauthorized.html', {'partner': partner})
 
         return render_to_response('course_outline.html', {
             'language_code': request.LANGUAGE_CODE,
@@ -1260,10 +1265,15 @@ def settings_handler(request, course_key_string):  # lint-amnesty, pylint: disab
             overview = CourseOverview.objects.get(id=course_key)
             partner = overview.enhancedcourse.partner
             if partner:
-                if partner.activate_school_admin and hasattr(request.user, 'extended_profile'):
-                    user_partner = request.user.extended_profile.partner
-                    if partner.id != user_partner.id:
+                if partner.activate_school_admin:
+                    if not hasattr(request.user, 'extended_profile'):
                         return render_to_response('unauthorized.html', {'partner': partner})
+                    else:
+                        user_partner = request.user.extended_profile.partner
+                        if not user_partner:
+                            return render_to_response('unauthorized.html', {'partner': partner})
+                        elif partner.id != user_partner.id:
+                            return render_to_response('unauthorized.html', {'partner': partner})
             return render_to_response('settings.html', settings_context)
         elif 'application/json' in request.META.get('HTTP_ACCEPT', ''):  # pylint: disable=too-many-nested-blocks
             if request.method == 'GET':
