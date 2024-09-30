@@ -2138,16 +2138,6 @@ msgstr "བཀོལ་སྤྱོད་ཀྱི་གན་རྒྱ།"
 #: lms/djangoapps/branding/api.py:392
 #: lms/djangoapps/certificates/views/webview.py:190
 #, fuzzy
-msgid "Privacy Policy"
-msgstr ""
-"#-#-#-#-#  analytics-dashboard-bo.po (edx-platform)  #-#-#-#-#\n"
-"གསང་རྒྱའི་སྲིད་བྱུས།\n"
-"#-#-#-#-#  mako-bo.po (edx-platform)  #-#-#-#-#\n"
-"གསང་རྒྱའི་སྲིད་བྱུས།\n"
-"#-#-#-#-#  credentials-bo.po (0.1a)  #-#-#-#-#\n"
-"གསང་རྒྱའི་སྲིད་བྱུས།\n"
-"#-#-#-#-#  django-partial-bo.po (edx-platform)  #-#-#-#-#\n"
-"གསང་རྒྱའི་ཆོད་གན།"
 
 #: analytics_dashboard/templates/403.html:5
 #: analytics_dashboard/templates/403.html:8
@@ -21631,7 +21621,7 @@ msgstr ""
 #: cms/templates/import.html:32 cms/templates/widgets/header.html:226
 #: cms/templates/widgets/header.html:297
 msgid "Tools"
-msgstr "ལག་ཆ་ཁག"
+msgstr "སྦྱོང་ཐབས།"
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
@@ -50269,3 +50259,45 @@ msgstr ""
 #: cms/templates/js/video/transcripts/messages/transcripts-use-existing.underscore:25
 msgid "Use Current Transcript"
 msgstr ""
+
+msgid "Wishlist"
+msgstr "སྦྱངས་འདོད་སློབ་ཚན་ཐོ།"
+
+msgid "My Wishlist"
+msgstr "ངའི་སྦྱངས་འདོད་ཡོད་པའི་སློབ་ཚན་ཁག"
+
+msgid "Add to Wishlist"
+msgstr "སྦྱངས་འདོད་སློབ་ཚན་ཐོ་གཞུང་ནང་འཇུག་རོགས།"
+
+msgid "You have no courses in your wishlist."
+msgstr "ཐོ་གཞུང་ནང་ཁྱེད་ཀྱི་སྦྱངས་འདོད་ཡོད་པའི་སློབ་ཚན་གཅིག་ཀྱང་མི་འདུག"
+
+msgid "Main Page"
+msgstr "གཙོ་ངོས།"
+
+msgid "Schools and Partners"
+msgstr "མཉམ་འབྲེལ་ཚོགས་སྡེ།"
+
+msgid "Course Categories"
+msgstr "སློབ་ཚན་རིགས་དབྱེ།"
+
+msgid "Buddhism"
+msgstr "ནང་ཆོས།"
+
+msgid "Languages"
+msgstr "སྐད་ཡིག"
+
+msgid "Skills"
+msgstr "རིག་རྩལ།"
+
+msgid "Community Forum"
+msgstr "བགྲོ་གླེང་བྱེད་ས།"
+
+msgid "About Us"
+msgstr "ང་ཚོའི་སྐོར།"
+
+msgid "Privacy Policy"
+msgstr "སྒེར་སྤྱོད་གན་རྒྱ།"
+
+msgid "Centers"
+msgstr "ལྟེ་བ།"
